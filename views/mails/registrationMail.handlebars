@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body style="padding: 36px 0">
+
+    <div style="margin: 24px;">
+        <h2>
+            Nowe konto zostało utworzone &#128077;
+        </h2>
+    </div>
+
+    <div style="margin: 24px;">
+        <h3>
+            Informacja o koncie:  
+        </h3>
+        <h4>
+            &#128312; Użytkownik: <b>{{user}}</b>
+        </h4>
+        <h4>
+            &#128312; Imię: <b>{{name}}</b>
+        </h4>
+        <h4>
+            &#128312; Nazwisko: <b>{{surname}}</b>
+        </h4>
+        <h4>
+            &#128312; Email: <a href="mailto:{{email}}"><b>{{email}}</b></a> 
+        </h4>
+    </div>
+
+    <div style="margin: 24px;">
+        {{#if departments}}
+            <h3>Użytkownik prosi o nadanie dostępu do:</h3>
+            {{#each departments}}
+                <h4>&#128313; {{this}}</h4>
+            {{/each}}
+        {{/if}}
+    </div>
+
+    <div style="margin: 36px 24px 24px 24px;">
+        Jako administrator aplikacji możesz <a href="http://localhost:8080/admin">potwierdzić konto i nadać uprawnienia</a>.
+    </div>
+
+    <div style="margin: 36px 24px 0 24px;">
+        <span style="font-size: 24px; font-family: Verdana">WRO DIRKS APPLICATION</span>
+    </div>
+
+
+</body>
+</html>

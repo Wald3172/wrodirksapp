@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+{{> head}}
+
+<body>
+
+    {{#if errorMsg}}
+        <div class="w3-container">
+            <div id="errorMsg" class="w3-modal w3-animate-opacity" style='display: block' onclick="this.style.display='none'">
+                <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-deep-orange"> 
+                    <span onclick="document.getElementById('errorMsg').style.display='none'" 
+                    class="w3-button w3-display-topright">&#10060;</span>
+                    <p class="msg_header">Komunikat błędu</p>
+                </header>
+                <div class="w3-container w3-sand">
+                    <p class="msg_desc w3-text-deep-orange">{{errorMsg}}</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if successMsg}}
+        <div class="w3-container">
+            <div id="successMsg" class="w3-modal w3-animate-opacity" style='display: block' onclick="this.style.display='none'">
+                <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-teal"> 
+                    <span onclick="document.getElementById('successMsg').style.display='none'" 
+                    class="w3-button w3-display-topright">&#10060;</span>
+                    <p class="msg_header">Gratulacje</p>
+                </header>
+                <div class="w3-container w3-light-gray">
+                    <p class="msg_desc w3-text-teal">{{successMsg}}</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+    <section class="auth">
+        <div class="auth__container">
+
+            <div class="auth__logo">
+                <a href="/">
+                    <img src="/img/logo.png" alt="Logo Dirks">
+                </a>
+            </div>
+
+            <div class="auth__wrapper">
+                
+                <div class="auth__wrapper_header">
+                    Rejestracja
+                </div>
+
+
+                <form action="/auth/register" method="POST" class="auth__wrapper_form">
+
+                    <div class="auth__wrapper_flex">
+                        <div class="auth__wrapper_inputs">
+                            <label class="auth__wrapper_label">
+                                Imię
+                                <input class="auth__wrapper_input" name="firstName" type="text" required
+                                {{#if inputValueFirstName}}
+                                value="{{inputValueFirstName}}"
+                                {{/if}}
+                                >
+                            </label>
+    
+                            <label class="auth__wrapper_label">
+                                Nazwisko
+                                <input class="auth__wrapper_input" name="lastName" type="text" required
+                                {{#if inputValueLastName}}
+                                value="{{inputValueLastName}}"
+                                {{/if}}>
+                            </label>
+    
+                            <label class="auth__wrapper_label">
+                                Email
+                                <input class="auth__wrapper_input" name="email" type="email" required
+                                {{#if inputValueEmail}}
+                                value="{{inputValueEmail}}"
+                                {{/if}}>
+                            </label>
+    
+                            <label class="auth__wrapper_label">
+                                Hasło
+                                <input class="auth__wrapper_input" name="password" type="password" required>
+                            </label>
+    
+                            <label class="auth__wrapper_label">
+                                Powtórz hasło
+                                <input class="auth__wrapper_input" name="passwordConfirm" type="password" required>
+                            </label>
+                        </div>
+
+                        <div class="auth__wrapper_divider"></div>
+    
+                        <div class="auth__wrapper_checkboxes">
+    
+                            <label class="auth__wrapper_label auth__wrapper_checkboxes-header">
+                                Zaznacz potrzebne działy:
+                            </label>
+
+                            <!-- Działy  z bazy -->
+                            {{#if department.length}}
+                                {{#each department}}
+                                    <div class="auth__wrapper_checkbox">
+                                        <input id="checkbox{{this.id}}" type="checkbox" name="department" value="{{this.short_name}}">
+                                        <label>{{this.full_name}}</label>
+                                    </div>
+                                {{/each}}
+                            {{/if}}
+
+                        </div>
+                    </div>
+
+                    <div class="auth__wrapper_desc">
+                        Już posiadasz konto? 
+                        <a href="/login">Zaloguj się &#128521;</a>
+                    </div>
+
+                    <div class="auth__wrapper_buttons">
+                        <button type="submit" class="btn btn_active">
+                            Zarejestruj się
+                        </button>
+                    </div>
+                        
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

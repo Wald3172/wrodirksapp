@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+
+<body>
+
+    {{> header}}
+
+    <main class="main">
+
+        {{!-- Dropdown button - change a table --}}
+
+        <div class="table__container">
+            <h1>{{pageTitle}}</h1>
+            <p>Jako administrator aplikacji możesz potwierdzać i usuwać konta oraz przyznawać, modyfikować i usuwać uprawnienia użytkowników.</p>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-black dropdown">Wybierz obszar do edycji</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border dropdown__items">
+                    <a href="/unconfirmedUsers" id="unconfirmedUsersTable" class="w3-bar-item w3-button dropdown__item">
+                        Niepotwierdzone konta 
+                        <b style="color: red;">({{howMany.unconfirmedUsersNo}})</b>
+                    </a>
+                    
+                    <a href="/confirmedUsers" id="confirmedUsersTable" class="w3-bar-item w3-button dropdown__item">
+                        Potwierdzone konta 
+                        <b style="color: green;">({{howMany.confirmedUsersNo}})</b>
+                    </a>
+                    
+                    <a href="/unconfirmedAccesses" id="unconfirmedAccessesTable" class="w3-bar-item w3-button dropdown__item">
+                        Niepotwierdzone działy 
+                        <b style="color: red;">({{howMany.unconfirmedAccessesNo}})</b>
+                    </a>
+                    
+                    <a href="/confirmedAccesses" id="confirmedAccessesTable" class="w3-bar-item w3-button dropdown__item">
+                        Potwierdzone działy 
+                        <b style="color: green;">({{howMany.confirmedAccessesNo}})</b>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Tables --}}
+
+        {{#if unconfirmedUsers}}
+            <div class="table__container" id="unconfirmedUsers">
+                <table class="w3-table-all table">
+                    <thead>
+                        <tr>
+                            <th>Użytkownik</th>
+                            <th>Rola</th>
+                            <th>Opcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {{#each unconfirmedUsers}}
+                            <tr>
+                                <td id="table1_{{this.id}}_user">{{this.user}}</td>
+                                <td id="table1_{{this.id}}_role">{{this.role}}</td>
+                                <td class="table__options">
+                                    <button 
+                                        onclick="openModal(this.id, 'unconfirmedUsers', 1)" 
+                                        id="table1_{{this.id}}_1"
+                                        class="table-btn table-btn_green">&#9989; akceptuj</button>
+                                    <button 
+                                        onclick="openModal(this.id, 'unconfirmedUsers', 0)"
+                                        id="table1_{{this.id}}_2" class="table-btn table-btn_red">&#10060; usuń</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
+
+        {{#if confirmedUsers}}
+            <div class="table__container" id="confirmedUsers">
+                <table class="w3-table-all table">
+                    <thead>
+                        <tr>
+                            <th>Użytkownik</th>
+                            <th>Rola</th>
+                            <th>Opcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {{#each confirmedUsers}}
+                            <tr>
+                                <td id="table2_{{this.id}}_user">{{this.user}}</td>
+                                <td id="table2_{{this.id}}_role">{{this.role}}</td>
+                                <td class="table__options">
+                                    <button 
+                                        onclick="openModal(this.id, 'confirmedUsers', 2)"
+                                        id="table2_{{this.id}}_1" class="table-btn table-btn_yellow">&#128273; zmień</button>
+                                    <button 
+                                        onclick="openModal(this.id, 'confirmedUsers', 0)"
+                                        id="table2_{{this.id}}_2" class="table-btn table-btn_red">&#10060; usuń</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
+
+        {{#if unconfirmedAccesses}}
+            <div class="table__container" id="unconfirmedAccesses">
+                <table class="w3-table-all table">
+                    <thead>
+                        <tr>
+                            <th>Użytkownik</th>
+                            <th>Dział</th>
+                            <th>Rola</th>
+                            <th>Opcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {{#each unconfirmedAccesses}}
+                            <tr>
+                                <td id="table3_{{this.id}}_user">{{this.user}}</td>
+                                <td id="table3_{{this.id}}_department">{{this.department}}</td>
+                                <td id="table3_{{this.id}}_role">{{this.role}}</td>
+                                <td class="table__options">
+                                    <button 
+                                        onclick="openModal(this.id, 'unconfirmedAccesses', 1)"
+                                        id="table3_{{this.id}}_1" class="table-btn table-btn_green">&#9989; akceptuj</button>
+                                    <button 
+                                        onclick="openModal(this.id, 'unconfirmedAccesses', 0)"
+                                    id="table3_{{this.id}}_2"  class="table-btn table-btn_red">&#10060; usuń</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
+
+        {{#if confirmedAccesses}}
+            <div class="table__container" id="confirmedAccesses">
+                <table class="w3-table-all table">
+                    <thead>
+                        <tr>
+                            <th>Użytkownik</th>
+                            <th>Dział</th>
+                            <th>Rola</th>
+                            <th>Opcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {{#each confirmedAccesses}}
+                            <tr>
+                                <td id="table4_{{this.id}}_user">{{this.user}}</td>
+                                <td id="table4_{{this.id}}_department">{{this.department}}</td>
+                                <td id="table4_{{this.id}}_role">{{this.role}}</td>
+                                <td class="table__options">
+                                    <button 
+                                        onclick="openModal(this.id, 'confirmedAccesses', 2)"
+                                        id="table4_{{this.id}}_1" class="table-btn table-btn_yellow">&#128273; zmień</button>
+                                    <button 
+                                        onclick="openModal(this.id, 'confirmedAccesses', 0)"
+                                        id="table4_{{this.id}}_2" class="table-btn table-btn_red">&#10060; usuń</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/if}}
+
+        {{!-- Modal window for confirmation/changing/delete --}}
+
+        <div class="modal w3-container displayNone">
+            <div id="modal" class="w3-modal" style="display: block">
+                <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-black"> 
+                    <span onclick="document.getElementById('modal').style.display='none'; location.reload();" 
+                    class="w3-button w3-display-topright">&#10060;</span>
+                    <p class="modal__header"></p>
+                </header>
+                <div class="modal__wrapper w3-container w3-light-gray">
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    {{> footer}}
+
+    <script src="/js/admin/openModal.js"></script>
+
+
+</body>
+</html>

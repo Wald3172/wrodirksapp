@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+    
+<body>
+
+    {{> header}}
+
+    <main class="main">
+        
+        {{#if department}}
+            <div class="depart__wrapper">
+            {{#each department}}
+
+                    <a href="/{{this.department}}" class="depart__card">
+                        <div class="depart__card_img">
+                            <img src="img/department/{{this.department}}.png" alt="{{this.department}}">
+                        </div>
+                        <div class="depart__card_divider"></div>
+                        <div class="depart__card_title">
+                            {{this.full_name}}
+                        </div>
+                    </a>
+
+            {{/each}}         
+            </div>  
+
+        {{else}}
+
+            <div class="msg_info">
+                Dostęp do działów jeszcze nie został nadany. Dla przyspieszenia sprawy skontaktuj się z 
+                <a class="msg_link" href="mailto:vyakovenko@dirks-group.de">
+                administratorem</a> aplikacji.
+            </div>
+
+
+        {{/if}}
+
+    </main>
+
+    {{> footer}}
+
+
+</body>
+</html>

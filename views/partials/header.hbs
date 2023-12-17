@@ -1,0 +1,89 @@
+    <div class="w3-sidebar w3-light-grey w3-bar-block w3-border-right w3-animate-left" style="display:none;" id="mySidebar">
+        <div class="w3-panel header__menu_header" style="margin: 0;">
+            <p class="header__menu_title">
+                Menu
+            </p>
+        </div> 
+        <div class="w3-margin-top">
+            {{#if admin}}
+                <a href="/admin" class="w3-bar-item w3-button header__menu_link">
+                    <b>&#9654; Admin panel</b>
+                </a>
+            {{/if}}
+            <a href="/profile" class="w3-bar-item w3-button header__menu_link">
+                <b>&#9654; Konto</b>
+            </a>
+            <a href="/logout" class="w3-bar-item w3-button header__menu_link">
+                <b>&#9654; Wyloguj się</b>
+            </a>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="/start">
+                    <img src="/img/logo.png" alt="Logo Dirks">
+                </a>
+            </div>
+            <div class="header__logo-mini">
+                <a href="/start">
+                    <img src="/img/logo_mini.png" alt="Logo Dirks">
+                </a>
+            </div>
+            <div class="header__title">
+                {{pageName}}
+            </div>
+            <div class="header__icons">
+                {{!-- Icon Admin --}}
+                {{#if admin}}
+                <div class="header__icons_item">
+                    <a class="header__icons_link" href="/admin">
+                        <img src="img/svg/admin.svg" alt="admin">
+                        {{#if unconfirmedSumNo includeZero=false}}
+                            <div class="header__icons_item-qty">{{unconfirmedSumNo}}</div>
+                        {{/if}}
+                    </a>
+                </div>
+                {{/if}}
+                {{!-- Icon Profile --}}
+                <div class="header__icons_item">
+                    <a class="header__icons_link" href="/profile">
+                        <img src="img/svg/profile.svg" alt="profile">
+                    </a>
+                </div>
+                {{!-- Icon Logout --}}
+                <div class="header__icons_item">
+                    <a class="header__icons_link" href="/logout">
+                        <img src="img/svg/logout.svg" alt="logout">
+                    </a>
+                </div>
+                {{!-- Gamburger menu --}}
+                <div class="header__menu" id="menuOpen" onclick="menuOpen()">
+                    <a class="header__icons_link" href="#">
+                        <img src="img/svg/menu.svg" alt="menu">
+                    </a>
+                </div>
+                <div class="header__menu" id="menuClose" onclick="menuClose()" style="display:none;">
+                    <a class="header__icon_logout" href="#">
+                        <img src="img/svg/close.svg" alt="menu">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function menuOpen() {
+            document.getElementById("mySidebar").style.width = "75%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("menuOpen").style.display = "none";  
+            document.getElementById("menuClose").style.display = "block";        
+            }
+
+        function menuClose() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("menuOpen").style.display = "block";  
+            document.getElementById("menuClose").style.display = "none";
+            }
+    </script>

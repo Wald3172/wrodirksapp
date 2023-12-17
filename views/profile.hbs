@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+    
+<body>
+
+    {{> header}}
+
+    <main class="main profile">
+
+        <div class="profile__container">
+
+            <div class="profile__wrapper">
+
+                <div class="profile__wrapper_header">
+                    Zmiana konta
+                </div>
+
+                <form action="/profile/profileUpdate" method="POST" class="profile__wrapper_form">
+
+                    <div class="profile__wrapper_flex">
+                        <div class="profile__wrapper_inputs">
+
+                            <label class="profile__wrapper_label">
+                                Nazwa użytkownika
+                                <input class="profile__wrapper_input" name="user" type="text" required
+                                {{#if user}}
+                                value="{{user}}"
+                                {{/if}}>
+                            </label>
+
+                            <label class="profile__wrapper_label">
+                                Imię
+                                <input class="profile__wrapper_input" name="firstName" type="text" required
+                                {{#if first_name}}
+                                value="{{first_name}}"
+                                {{/if}}
+                                >
+                            </label>
+    
+                            <label class="profile__wrapper_label">
+                                Nazwisko
+                                <input class="profile__wrapper_input" name="lastName" type="text" required
+                                {{#if last_name}}
+                                value="{{last_name}}"
+                                {{/if}}>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="profile__wrapper_buttons">
+                        <button onclick="checkCheckbox()" type="submit" class="btn btn_active">
+                            Zapisz zmiany
+                        </button>
+                    </div>
+                        
+                </form>
+
+            </div>
+
+            
+            <div class="profile__wrapper">
+
+                <div class="profile__wrapper_header">
+                    Dostęp do działów
+                </div>
+
+                {{#if departmentConfirmed.length}}
+
+                    <form action="#" class="profile__wrapper_form">
+                    
+                        <div class="profile__wrapper_flex">
+
+                            <div class="profile__wrapper_checkboxes">
+        
+                                <label class="profile__wrapper_label profile__wrapper_checkboxes-header">
+                                    Dostępne działy (potwierdzone):
+                                </label>
+
+                                <!-- Działy  z bazy -->
+                                
+                                    {{#each departmentConfirmed}}
+                                            <div class="profile__wrapper_checkbox">
+                                                <input id="checkbox{{this.id}}" 
+                                                type="checkbox" name="department" value="{{this.department}}" disabled>
+                                                <label>{{this.department}}</label>
+                                            </div>
+                                    {{/each}}
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                {{/if}}
+
+                {{#if departmentUnconfirmed.length}}
+                    <form action="#" class="profile__wrapper_form">
+                        
+                        <div class="profile__wrapper_flex">
+
+                            <div class="profile__wrapper_checkboxes">
+        
+                                <label class="profile__wrapper_label profile__wrapper_checkboxes-header">
+                                    Czekają na potwierdzenie:
+                                </label>
+
+                                <!-- Działy  z bazy -->
+                                
+                                    {{#each departmentUnconfirmed}}
+                                            <div class="profile__wrapper_checkbox">
+                                                <input id="checkbox{{this.id}}" type="checkbox" name="department" value="{{this.department}}" disabled>
+                                                <label>{{this.department}}</label>
+                                            </div>
+                                    {{/each}}
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                {{/if}} 
+                        
+                {{#if departmentWithoutAccess.length}}
+
+                    <form action="/profile/departmentAccess" method="POST" class="profile__wrapper_form">  
+
+                        <div class="profile__wrapper_flex">
+
+                            <div class="profile__wrapper_checkboxes">
+
+                                <label class="profile__wrapper_label profile__wrapper_checkboxes-header">
+                                    Pozostałe działy:
+                                </label>
+
+                                <!-- Działy  z bazy -->
+                                
+                                    {{#each departmentWithoutAccess}}
+                                        <div class="profile__wrapper_checkbox">
+                                            <input type="checkbox" name="department" value="{{this}}">
+                                            <label>{{this}}</label>
+                                        </div>
+                                    {{/each}}
+
+                            </div>
+
+                        </div>
+                        
+                        <div class="profile__wrapper_buttons">
+                            <button type="submit" class="btn btn_active">
+                                Poproś o dostęp
+                            </button>
+                        </div>
+                        
+                    </form>
+
+                {{/if}}
+
+                
+            </div>
+
+        </div>
+
+    </main>
+
+    {{> footer}}
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body style="padding: 36px 0">
+
+    <div style="margin: 24px;">
+        <h2>
+            Gratulacje,  {{name}} &#128079;
+        </h2>
+    </div>
+
+    <div style="margin: 24px;">
+        {{#if department}}
+            <h3>&#9989; Administrator nadał Ci dostęp do działy: {{department}}</h3>
+            <div>
+                Już możesz korzystać z <a href="http://localhost:8080/{{department}}">tej strony</a>.
+            </div>
+        {{else}}
+            <h3>&#9989; Twoje konto zostało potwierdzone przez administratora.</h3>
+            <div>
+                Już możesz korzystać z <a href="http://localhost:8080">aplikacji</a>.
+            </div>
+        {{/if}}
+    </div>
+
+    <div style="margin: 36px 24px 0 24px;">
+        <span style="font-size: 24px; font-family: Verdana">WRO DIRKS APPLICATION</span>
+    </div>
+
+
+</body>
+</html>
