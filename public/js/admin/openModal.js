@@ -88,8 +88,6 @@ function openModal (id, table, color) {
                         <label>admin</label>
                     </div>
                 </div>
-
-
     
                 <button type="submit" class="modal__wrapper_btn w3-button ${btnColor}">
                     ${btnName}

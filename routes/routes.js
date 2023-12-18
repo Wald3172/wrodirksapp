@@ -81,7 +81,7 @@ router.get('/admin', isLogIn, isAdmin, adminSelect, (req, res) => {
     }
 });
 
-router.get('/unconfirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
+router.get('/admin/unconfirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
     if (req.user && req.admin) {
         const title = "WRO Dirks App | Admin panel";
         const pageName = "Admin panel";
@@ -96,7 +96,7 @@ router.get('/unconfirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
     }
 });
 
-router.get('/confirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
+router.get('/admin/confirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
     if (req.user && req.admin) {
         const title = "WRO Dirks App | Admin panel";
         const pageName = "Admin panel";
@@ -111,7 +111,7 @@ router.get('/confirmedUsers', isLogIn, isAdmin, adminSelect, (req, res) => {
     }
 });
 
-router.get('/unconfirmedAccesses', isLogIn, isAdmin, adminSelect, (req, res) => {
+router.get('/admin/unconfirmedAccesses', isLogIn, isAdmin, adminSelect, (req, res) => {
     if (req.user && req.admin) {
         const title = "WRO Dirks App | Admin panel";
         const pageName = "Admin panel";
@@ -126,7 +126,7 @@ router.get('/unconfirmedAccesses', isLogIn, isAdmin, adminSelect, (req, res) => 
     }
 });
 
-router.get('/confirmedAccesses', isLogIn, isAdmin, adminSelect, (req, res) => {
+router.get('/admin/confirmedAccesses', isLogIn, isAdmin, adminSelect, (req, res) => {
     if (req.user && req.admin) {
         const title = "WRO Dirks App | Admin panel";
         const pageName = "Admin panel";

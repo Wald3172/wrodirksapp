@@ -36,7 +36,7 @@ const adminDelete = async (req, res) => {
         console.log(error);
     } finally {
         if (conn) conn.end();
-        return res.redirect (`/${route}`);
+        return res.redirect (`/admin/${route}`);
     }
 }
 
