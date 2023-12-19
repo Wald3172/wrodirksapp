@@ -1,4 +1,4 @@
-const pool = require('../../config/db_users-config');
+const pool = require('../../config/dbConfigUser');
 
 const adminUpdate = async (req, res) => {
 

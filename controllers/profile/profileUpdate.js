@@ -1,5 +1,5 @@
 const { error } = require('console');
-const pool = require('../../config/db_users-config');
+const pool = require('../../config/dbConfigUser');
 const jwt = require('jsonwebtoken');
 const { promisify } = require("util");
 

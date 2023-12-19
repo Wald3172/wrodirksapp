@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
+const version = require('../config/version');
 
 const isLogIn = require('../controllers/auth/isLogIn');
 const isAdmin = require('../controllers/auth/isAdmin');
@@ -13,7 +14,6 @@ const adminConfirm = require('../controllers/admin/adminConfirm');
 // GET
 const title = "WRO Dirks App | Admin panel";
 const pageName = "Admin panel";
-const version = process.env.APP_VERSION;
 
 router.get('/admin', isLogIn, isAdmin, adminSelect, (req, res) => {
     if (req.user && req.admin) {

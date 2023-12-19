@@ -13,7 +13,7 @@ const departmentAccess = require('../controllers/profile/departmentAccess');
 // GET
 const title = "WRO Dirks App | Profile";
 const pageName = "Profile"
-const version = process.env.APP_VERSION;
+const version = require('../config/version');
 
 router.get('/profile', isLogIn, isAdmin, adminSelect, profileSelect, (req, res) => {
     if (req.user) {

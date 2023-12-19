@@ -1,7 +1,6 @@
-const pool = require('../../config/db_users-config');
+const pool = require('../../config/dbConfigUser');
 const jwt = require('jsonwebtoken');
 const { promisify } = require("util");
-// const bcrypt = require('bcryptjs');
 
 const profileSelect = async (req, res, next) => {
 

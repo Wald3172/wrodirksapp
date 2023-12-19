@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 const hbs = require('nodemailer-express-handlebars');
 const path = require('path');
-const pool = require('../config/db_users-config');
+const pool = require('../config/dbConfigUser');
 
 async function registrationMail(user, name, surname, email, department) {
 

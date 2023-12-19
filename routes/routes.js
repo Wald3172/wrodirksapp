@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const version = require('../config/version');
 
 const isLogIn = require('../controllers/auth/isLogIn');
 const isAdmin = require('../controllers/auth/isAdmin');
@@ -18,7 +19,7 @@ router.get('/start', isLogIn, isAdmin, adminSelect, isAccess, (req, res) => {
         const pageName = "Home page";
         const department = req.department;
         const unconfirmedSumNo = req.unconfirmedSumNo;
-        res.render('start', {title, pageName, admin, unconfirmedSumNo, department})
+        res.render('start', {title, pageName, admin, unconfirmedSumNo, department, version})
     } else {
         res.redirect('/')
     }
