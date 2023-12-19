@@ -2,3 +2,5 @@
 /_scss
 
 .env
+
+views/mails/test.handlebars
