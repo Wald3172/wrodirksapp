@@ -3,4 +3,5 @@
 
 .env
 
-views/mails/test.handlebars
+/views/mails/test.handlebars
+/mails/testMail.js
