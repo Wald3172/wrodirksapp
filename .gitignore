@@ -1,7 +1,9 @@
 /node_modules
 /_scss
 
-.env
-
 /views/mails/test.handlebars
 /mails/testMail.js
+
+.env
+
+
