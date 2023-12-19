@@ -10,6 +10,7 @@ const adminSelect = require('../controllers/admin/adminSelect');
 const authRouter = require('./authRouter');
 const adminRouter = require('./adminRouter');
 const profileRouter = require('./profileRouter');
+const orderRouter = require('./orderRouter');
 
 // start page
 router.get('/start', isLogIn, isAdmin, adminSelect, isAccess, (req, res) => {
@@ -29,5 +30,6 @@ router.get('/start', isLogIn, isAdmin, adminSelect, isAccess, (req, res) => {
 router.use(authRouter);
 router.use(adminRouter);
 router.use(profileRouter);
+router.use(orderRouter);
 
 module.exports = router;

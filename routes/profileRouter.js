@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-require('dotenv').config();
+const version = require('../config/version');
 
 const isLogIn = require('../controllers/auth/isLogIn');
 const isAdmin = require('../controllers/auth/isAdmin');
@@ -13,7 +13,7 @@ const departmentAccess = require('../controllers/profile/departmentAccess');
 // GET
 const title = "WRO Dirks App | Profile";
 const pageName = "Profile"
-const version = require('../config/version');
+
 
 router.get('/profile', isLogIn, isAdmin, adminSelect, profileSelect, (req, res) => {
     if (req.user) {

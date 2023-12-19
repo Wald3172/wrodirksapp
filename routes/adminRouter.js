@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-require('dotenv').config();
 const version = require('../config/version');
 
 const isLogIn = require('../controllers/auth/isLogIn');
