@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+    
+<body>
+
+    {{> header}}
+
+    <main class="main">
+        <div class="container">
+
+            <div class="menu">
+
+                <div class="menu__dropdown">
+                    
+                    <div class="menu__dropdown_title">{{param.title}}</div>
+                    <div class="menu__dropdown_desc">{{param.desc}}</div>
+
+                </div>
+
+                <div class="menu__divider"></div>
+
+                {{!-- new point --}}
+                <div class="menu__point" style="background-color: wheat;">
+                    <form action="/order/checklist/new_point" method="POST"> 
+                        <div class="menu__point_title menu__point_info">
+                            <div class="menu__point_info-svg">
+                                <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10.9848 3.16464C11.0756 2.61988 10.7076 2.10462 10.1629 2.01378C9.6181 1.92293 9.10284 2.29091 9.012 2.83567L8.15118 7.99772L3.99937 8.00016C3.44708 8.00049 2.99963 8.44847 2.99996 9.00075C3.00028 9.55304 3.44826 10.0005 4.00055 10.0002L7.81763 9.99791L7.15053 13.9983L2.99955 14.0002C2.44727 14.0004 1.99975 14.4483 2 15.0006C2.00025 15.5529 2.44816 16.0004 3.00045 16.0002L6.81699 15.9985L6.01034 20.8357C5.91949 21.3804 6.28747 21.8957 6.83223 21.9865C7.37699 22.0774 7.89225 21.7094 7.9831 21.1646L8.84475 15.9976L13.8203 15.9953L13.0136 20.8358C12.9228 21.3805 13.2908 21.8958 13.8356 21.9865C14.3803 22.0773 14.8956 21.7093 14.9863 21.1646L15.848 15.9944L20.0004 15.9926C20.5527 15.9923 21.0002 15.5444 21 14.9921C20.9998 14.4399 20.5518 13.9923 19.9996 13.9926L16.1814 13.9943L16.8483 9.9926L21.0005 9.99015C21.5528 9.98983 22.0003 9.54185 22 8.98956C21.9996 8.43728 21.5517 7.98983 20.9994 7.99015L17.1817 7.9924L17.9863 3.16456C18.0771 2.61978 17.7091 2.10456 17.1644 2.01376C16.6196 1.92297 16.1044 2.29099 16.0136 2.83576L15.1539 7.99359L10.179 7.99652L10.9848 3.16464ZM9.84545 9.99672L14.8206 9.99379L14.1537 13.9952L9.1783 13.9974L9.84545 9.99672Z" fill="#212121"/></svg>
+                            </div>
+                            <div class="menu__point_info-desc">
+                                Nowy punkt
+                            </div>
+                        </div>
+                        <div class="menu__point_title menu__point_info">
+                            <div class="menu__point_info-svg">
+                                <svg fill="none" height="24" viewBox="0 0 20 20" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 3.25C12.9142 3.25 13.25 3.58579 13.25 4V8.65686C13.7426 8.24347 14.3469 8 15 8C16.6569 8 18 9.567 18 11.5C18 13.433 16.6569 15 15 15C14.3469 15 13.7426 14.7565 13.25 14.3431V14.5C13.25 14.9142 12.9142 15.25 12.5 15.25C12.0858 15.25 11.75 14.9142 11.75 14.5V4C11.75 3.58579 12.0858 3.25 12.5 3.25ZM15 13.5C15.6198 13.5 16.5 12.8298 16.5 11.5C16.5 10.1702 15.6198 9.5 15 9.5C14.3802 9.5 13.5 10.1702 13.5 11.5C13.5 12.8298 14.3802 13.5 15 13.5ZM6.49486 3.25007C6.81023 3.25448 7.08915 3.45572 7.19277 3.75361L10.8449 14.2536C10.981 14.6448 10.7742 15.0723 10.383 15.2084C9.99173 15.3445 9.56427 15.1376 9.42819 14.7464L8.64684 12.5L4.06127 12.5L3.20142 14.7661C3.05447 15.1533 2.6214 15.3482 2.23413 15.2012C1.84686 15.0543 1.65204 14.6212 1.79899 14.2339L5.78318 3.73393C5.89507 3.43904 6.1795 3.24567 6.49486 3.25007ZM4.63044 11L8.1251 11L6.45374 6.19485L4.63044 11Z" fill="#212121"/></svg>
+                            </div>
+                            <div class="menu__point_info-desc">
+                                <input type="text" name="title" placeholder="tytuł" required>
+                            </div>
+                        </div>
+                        <div class="menu__point_info">
+                            <div class="menu__point_info-svg">
+                                <svg enable-background="new 0 0 48 48" height="24px" id="Layer_3" version="1.1" viewBox="0 0 48 48" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M24,0.125C10.814,0.125,0.125,10.814,0.125,24c0,13.187,10.689,23.875,23.875,23.875  c13.186,0,23.875-10.688,23.875-23.875C47.875,10.814,37.186,0.125,24,0.125z M23.449,14.162c0.098-0.576,0.387-1.062,0.861-1.466  c0.469-0.407,0.993-0.609,1.569-0.609c0.573,0,1.037,0.202,1.392,0.609c0.356,0.403,0.478,0.89,0.38,1.466  c-0.104,0.572-0.391,1.062-0.86,1.467c-0.473,0.403-0.998,0.605-1.57,0.605c-0.572,0-1.029-0.202-1.367-0.605  C23.515,15.225,23.378,14.734,23.449,14.162z M30.084,31.445c0,0-0.02,0.029-0.05,0.072c-0.04,0.052-0.082,0.108-0.131,0.167  c-0.551,0.695-2.374,2.772-5.146,3.804c-0.097,0.037-0.195,0.074-0.292,0.105c-0.039,0.014-0.076,0.029-0.116,0.043  c-0.004-0.002-0.006-0.004-0.01-0.004c-0.586,0.181-1.16,0.281-1.716,0.281c-1.228,0-1.843-0.562-1.843-1.685  c0-0.476,0.252-1.937,0.756-4.379l0.986-4.728l0.251-1.195l0.202-0.957c0.085-0.406,0.127-0.745,0.127-1.023  c0-0.309-0.09-0.506-0.227-0.646c-0.19-0.157-0.488-0.13-0.645-0.094c-0.337,0.089-0.721,0.247-0.872,0.312  c-1.996,0.998-3.185,2.531-3.185,2.531c-0.316-0.196-0.476-0.394-0.476-0.59c0-0.251,0.124-0.533,0.36-0.843l-0.002,0.001  l0.009-0.011c0.182-0.237,0.426-0.49,0.745-0.762c0.415-0.383,1.013-0.858,1.762-1.332c0.037-0.024,0.061-0.043,0.101-0.069  c2.766-1.823,4.633-1.682,4.633-1.682l-0.005,0.008c0.284,0.023,0.695,0.127,1.137,0.487c0.042,0.034,0.058,0.064,0.088,0.098  c0.028,0.028,0.056,0.058,0.082,0.089c0.029,0.042,0.051,0.082,0.066,0.122c0.177,0.274,0.287,0.611,0.287,1.055  c0,0.232-0.068,0.708-0.201,1.427l-0.226,1.162c-0.021,0.093-0.11,0.562-0.278,1.408l-1.035,4.969l-0.253,1.111  c-0.221,1.102-0.33,1.834-0.33,2.205c0,0.449,0.184,0.687,0.523,0.73c0.12-0.01,0.492-0.046,0.891-0.188  c0.135-0.062,0.271-0.114,0.401-0.185c0.006-0.006,0.015-0.01,0.024-0.014c1.511-0.837,2.672-2.236,2.984-2.632  c0.052-0.076,0.104-0.141,0.156-0.216c0.446,0.187,0.677,0.365,0.677,0.54c0,0.128-0.076,0.299-0.217,0.505H30.084z" fill="#241F20"/></svg>
+                            </div>
+                            <div class="menu__point_info-desc">
+                                <input type="text" name="info" placeholder="opis">
+                            </div>
+                        </div>
+
+                        <div class="menu__point_param">
+                            <div class="menu__point_param-workday">
+                                <div class="menu__point_param-day">
+                                    Pon.
+                                    <input type="checkbox" name="monday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Wt.
+                                    <input type="checkbox" name="tuesday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Śr.
+                                    <input type="checkbox" name="wednesday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Czw.
+                                    <input type="checkbox" name="thursday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Pt.
+                                    <input type="checkbox" name="friday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Sob.
+                                    <input type="checkbox" name="saturday" value="1">
+                                </div>
+                                <div class="menu__point_param-day">
+                                    Niedz.
+                                    <input type="checkbox" name="sunday" value="1">
+                                </div>
+                            </div>
+                            
+                            <div class="menu__point_param-shifts">
+                                <div class="menu__point_param-shift">
+                                    I zm.
+                                    <input type="checkbox" name="first_shift" value="1">
+                                </div>
+                                <div class="menu__point_param-shift">
+                                    II zm.
+                                    <input type="checkbox" name="second_shift" value="1">
+                                </div>
+                                <div class="menu__point_param-shift">
+                                    Jedna zm.
+                                    <input type="checkbox" name="one_shift" value="1">
+                                </div>
+                            </div>
+                            <div class="menu__point_param-times">
+                                <div class="menu__point_param-time">
+                                    Czas/godzina:
+                                    <input type="text" name="time_hour">
+                                </div>
+                            </div>
+                            <div class="menu__point_param-planners">
+                                <div class="menu__point_param-planner">
+                                    Zlecenia
+                                    <input type="checkbox" name="planner_zl" value="1">
+                                </div>
+                                <div class="menu__point_param-planner">
+                                    Transporty
+                                    <input type="checkbox" name="planner_tr" value="1">
+                                </div>
+                            </div>
+                            <div class="menu__point_param-options">
+                                <button type="submit" class="table-btn table-btn_green">
+                                    &#9989; dodaj
+                                </button>
+                                <button type="reset" class="table-btn table-btn_red menu__point_param-option">
+                                    &#10060; wyczyść
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="menu__divider"></div>
+
+                {{#if points}}
+
+                    {{#each points}}
+
+                    <form action="/order/checklist/change_point" method="post">
+                        
+                        <div class="menu__point">
+                            <div class="menu__point_title menu__point_info">
+                                <div class="menu__point_info-svg">
+                                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10.9848 3.16464C11.0756 2.61988 10.7076 2.10462 10.1629 2.01378C9.6181 1.92293 9.10284 2.29091 9.012 2.83567L8.15118 7.99772L3.99937 8.00016C3.44708 8.00049 2.99963 8.44847 2.99996 9.00075C3.00028 9.55304 3.44826 10.0005 4.00055 10.0002L7.81763 9.99791L7.15053 13.9983L2.99955 14.0002C2.44727 14.0004 1.99975 14.4483 2 15.0006C2.00025 15.5529 2.44816 16.0004 3.00045 16.0002L6.81699 15.9985L6.01034 20.8357C5.91949 21.3804 6.28747 21.8957 6.83223 21.9865C7.37699 22.0774 7.89225 21.7094 7.9831 21.1646L8.84475 15.9976L13.8203 15.9953L13.0136 20.8358C12.9228 21.3805 13.2908 21.8958 13.8356 21.9865C14.3803 22.0773 14.8956 21.7093 14.9863 21.1646L15.848 15.9944L20.0004 15.9926C20.5527 15.9923 21.0002 15.5444 21 14.9921C20.9998 14.4399 20.5518 13.9923 19.9996 13.9926L16.1814 13.9943L16.8483 9.9926L21.0005 9.99015C21.5528 9.98983 22.0003 9.54185 22 8.98956C21.9996 8.43728 21.5517 7.98983 20.9994 7.99015L17.1817 7.9924L17.9863 3.16456C18.0771 2.61978 17.7091 2.10456 17.1644 2.01376C16.6196 1.92297 16.1044 2.29099 16.0136 2.83576L15.1539 7.99359L10.179 7.99652L10.9848 3.16464ZM9.84545 9.99672L14.8206 9.99379L14.1537 13.9952L9.1783 13.9974L9.84545 9.99672Z" fill="#212121"/></svg>
+                                </div>
+                                <div class="menu__point_info-desc">
+                                    <input type="text" name="id" value="{{this.id}}" readonly>
+                                </div>
+                            </div>
+                            <div class="menu__point_title menu__point_info">
+                                <div class="menu__point_info-svg">
+                                    <svg fill="none" height="24" viewBox="0 0 20 20" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 3.25C12.9142 3.25 13.25 3.58579 13.25 4V8.65686C13.7426 8.24347 14.3469 8 15 8C16.6569 8 18 9.567 18 11.5C18 13.433 16.6569 15 15 15C14.3469 15 13.7426 14.7565 13.25 14.3431V14.5C13.25 14.9142 12.9142 15.25 12.5 15.25C12.0858 15.25 11.75 14.9142 11.75 14.5V4C11.75 3.58579 12.0858 3.25 12.5 3.25ZM15 13.5C15.6198 13.5 16.5 12.8298 16.5 11.5C16.5 10.1702 15.6198 9.5 15 9.5C14.3802 9.5 13.5 10.1702 13.5 11.5C13.5 12.8298 14.3802 13.5 15 13.5ZM6.49486 3.25007C6.81023 3.25448 7.08915 3.45572 7.19277 3.75361L10.8449 14.2536C10.981 14.6448 10.7742 15.0723 10.383 15.2084C9.99173 15.3445 9.56427 15.1376 9.42819 14.7464L8.64684 12.5L4.06127 12.5L3.20142 14.7661C3.05447 15.1533 2.6214 15.3482 2.23413 15.2012C1.84686 15.0543 1.65204 14.6212 1.79899 14.2339L5.78318 3.73393C5.89507 3.43904 6.1795 3.24567 6.49486 3.25007ZM4.63044 11L8.1251 11L6.45374 6.19485L4.63044 11Z" fill="#212121"/></svg>
+                                </div>
+                                <div class="menu__point_info-desc">
+                                    <input type="text" name="title" value="{{this.title}}">
+                                </div>
+                            </div>
+                            <div class="menu__point_info">
+                                <div class="menu__point_info-svg">
+                                    <svg enable-background="new 0 0 48 48" height="24px" id="Layer_3" version="1.1" viewBox="0 0 48 48" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M24,0.125C10.814,0.125,0.125,10.814,0.125,24c0,13.187,10.689,23.875,23.875,23.875  c13.186,0,23.875-10.688,23.875-23.875C47.875,10.814,37.186,0.125,24,0.125z M23.449,14.162c0.098-0.576,0.387-1.062,0.861-1.466  c0.469-0.407,0.993-0.609,1.569-0.609c0.573,0,1.037,0.202,1.392,0.609c0.356,0.403,0.478,0.89,0.38,1.466  c-0.104,0.572-0.391,1.062-0.86,1.467c-0.473,0.403-0.998,0.605-1.57,0.605c-0.572,0-1.029-0.202-1.367-0.605  C23.515,15.225,23.378,14.734,23.449,14.162z M30.084,31.445c0,0-0.02,0.029-0.05,0.072c-0.04,0.052-0.082,0.108-0.131,0.167  c-0.551,0.695-2.374,2.772-5.146,3.804c-0.097,0.037-0.195,0.074-0.292,0.105c-0.039,0.014-0.076,0.029-0.116,0.043  c-0.004-0.002-0.006-0.004-0.01-0.004c-0.586,0.181-1.16,0.281-1.716,0.281c-1.228,0-1.843-0.562-1.843-1.685  c0-0.476,0.252-1.937,0.756-4.379l0.986-4.728l0.251-1.195l0.202-0.957c0.085-0.406,0.127-0.745,0.127-1.023  c0-0.309-0.09-0.506-0.227-0.646c-0.19-0.157-0.488-0.13-0.645-0.094c-0.337,0.089-0.721,0.247-0.872,0.312  c-1.996,0.998-3.185,2.531-3.185,2.531c-0.316-0.196-0.476-0.394-0.476-0.59c0-0.251,0.124-0.533,0.36-0.843l-0.002,0.001  l0.009-0.011c0.182-0.237,0.426-0.49,0.745-0.762c0.415-0.383,1.013-0.858,1.762-1.332c0.037-0.024,0.061-0.043,0.101-0.069  c2.766-1.823,4.633-1.682,4.633-1.682l-0.005,0.008c0.284,0.023,0.695,0.127,1.137,0.487c0.042,0.034,0.058,0.064,0.088,0.098  c0.028,0.028,0.056,0.058,0.082,0.089c0.029,0.042,0.051,0.082,0.066,0.122c0.177,0.274,0.287,0.611,0.287,1.055  c0,0.232-0.068,0.708-0.201,1.427l-0.226,1.162c-0.021,0.093-0.11,0.562-0.278,1.408l-1.035,4.969l-0.253,1.111  c-0.221,1.102-0.33,1.834-0.33,2.205c0,0.449,0.184,0.687,0.523,0.73c0.12-0.01,0.492-0.046,0.891-0.188  c0.135-0.062,0.271-0.114,0.401-0.185c0.006-0.006,0.015-0.01,0.024-0.014c1.511-0.837,2.672-2.236,2.984-2.632  c0.052-0.076,0.104-0.141,0.156-0.216c0.446,0.187,0.677,0.365,0.677,0.54c0,0.128-0.076,0.299-0.217,0.505H30.084z" fill="#241F20"/></svg>
+                                </div>
+                                <div class="menu__point_info-desc">
+                                    <input type="text" name="info" value="{{this.info}}">
+                                </div>
+                            </div>
+
+                            <div class="menu__point_param">
+                                <div class="menu__point_param-workday">
+                                    <div class="menu__point_param-day">
+                                        Pon.
+                                        {{#if this.monday}}
+                                            <input type="checkbox" name="monday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="monday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Wt.
+                                        {{#if this.tuesday}}
+                                            <input type="checkbox" name="tuesday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="tuesday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Śr.
+                                        {{#if this.wednesday}}
+                                            <input type="checkbox" name="wednesday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="wednesday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Czw.
+                                        {{#if this.thursday}}
+                                            <input type="checkbox" name="thursday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="thursday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Pt.
+                                        {{#if this.friday}}
+                                            <input type="checkbox" name="friday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="friday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Sob.
+                                        {{#if this.saturday}}
+                                            <input type="checkbox" name="saturday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="saturday" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-day">
+                                        Niedz.
+                                        {{#if this.sunday}}
+                                            <input type="checkbox" name="sunday" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="sunday" value="1">
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                
+                                <div class="menu__point_param-shifts">
+                                    <div class="menu__point_param-shift">
+                                        I zm.
+                                        {{#if this.first_shift}}
+                                            <input type="checkbox" name="first_shift" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="first_shift" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-shift">
+                                        II zm.
+                                        {{#if this.second_shift}}
+                                            <input type="checkbox" name="second_shift" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="second_shift" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-shift">
+                                        Jedna zm.
+                                        {{#if this.one_shift}}
+                                            <input type="checkbox" name="one_shift" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="one_shift" value="1">
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="menu__point_param-times">
+                                    <div class="menu__point_param-time">
+                                        Czas/godzina:
+                                        <input type="text" name="time_hour" value="{{this.time_hour}}">
+                                    </div>
+                                </div>
+                                <div class="menu__point_param-planners">
+                                    <div class="menu__point_param-planner">
+                                        Zlecenia
+                                        {{#if this.planner_zl}}
+                                            <input type="checkbox" name="planner_zl" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="planner_zl" value="1">
+                                        {{/if}}
+                                    </div>
+                                    <div class="menu__point_param-planner">
+                                        Transporty
+                                        {{#if this.planner_tr}}
+                                            <input type="checkbox" name="planner_tr" value="1" checked>
+                                        {{else}}
+                                            <input type="checkbox" name="planner_tr" value="1">
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="menu__point_param-options">
+                                    <button class="table-btn table-btn_yellow menu__point_param-option">
+                                        &#128273; zapisz
+                                    </button>
+                                    <button class="table-btn table-btn_red menu__point_param-option">
+                                        &#10060; usuń
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    {{/each}}
+
+                {{/if}}
+
+
+
+
+            </div>
+
+        </div>
+    </main>
+
+    {{> footer}}
+
+</body>
+</html>

@@ -11,7 +11,7 @@ const isAccess = async (req, res, next) => {
             // check if the user still exist
             let conn;
             conn = await pool.getConnection();
-            const result = await conn.query("SELECT department, full_name FROM access INNER JOIN department ON department.short_name = access.department WHERE user_id = ? and access_confirmed = 1", [decoded.id]);
+            const result = await conn.query("SELECT department, full_name, role FROM access INNER JOIN department ON department.short_name = access.department WHERE user_id = ? and access_confirmed = 1", [decoded.id]);
 
             if (conn) conn.end();
 
